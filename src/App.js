@@ -16,7 +16,7 @@ import skull4 from './img/skull4.svg'
 import downwards_black_arrow from './img/downwards-black-arrow.png';
 import story_bg from './img/story-bg.jpg';
 
-let group_id = 197579598,
+let group_id = 197718506,
 	app_id = 7549544,
 	need_sub_group = false;
 
@@ -74,7 +74,7 @@ class App extends React.Component {
 
 	async initializeApp() {
 		try{
-			let sValues = await bridge.sendPromise('VKWebAppStorageGet', {keys: ['______date1', '______date2', '______reason1', '______reason2']});
+			let sValues = await bridge.sendPromise('VKWebAppStorageGet', {keys: ['_______date1', '_______date2', '_______reason1', '_______reason2']});
 			sValues = sValues.keys;
 			let data = {};
 			try{
@@ -86,7 +86,7 @@ class App extends React.Component {
 			}
 			this.setState({ data, sValues });
 
-			if(data.______date2 !== false && data.______date2 !== 0){
+			if(data._______date2 !== false && data._______date2 !== 0){
 				await this.initializeTimer();
 				this.go('main');
 			}
@@ -181,28 +181,52 @@ class App extends React.Component {
 			' во время 3й мировой войны от радиоактивного излучения',
 			' из-за запавшего языка, проснувшись, я задохнусь не сумев вытащить его наружу',
 			' от разрыва легких, во время падения со скутера',
-			' в открытом море, заснув на надувном матрасе'
+			' в открытом море, заснув на надувном матрасе',
+			' во время урагана. Ветер завалит рекламный щит и раздавит мои органы в кашу',
+			' в ДТП. Ноги зажмет искареженным металлом автомобиля и я потеряю слишком много крови',
+			' от истеричного приступа смеха, после того как моего друга пристыдит учительница за то, что он дрочил в школьном туалете.' +
+			' во время спец операции по захвату террористов в кс го.',
+			', упав с высоты 15 метров в Петербурге, во время экскурсии по крыше.',
+			' от болевого шока неправильно прыгнув с моста в воду.',
+			', решив прокатиться пьяным с друзьями на папиной машине. Я не справлюсь с управлением и влечу в другую машину.',
+			' от удара молнией шока. Моё тело получит 86% ожогов и от болевого шока моё сердце остановится.',
+			' от пулевого ранения, заступившись за девушку, которую хотят ограбить.',
+			' на Русской свадьбе. Меня возьмут на понт, что я не смогу выпить больше водки, чем жених. Я скончаюсь от алкогольного опьянения так и не выяснив кто выпил больше водки.',
+			' во время секса. Мы с партнером решим разнообразить секс и слишком сильно затянутые верёвки вокруг моей шеи меня придушат.',
+			' во время драки, после сильного удара я упаду на бордюр и разобью себе голову.',
+			' в озере. Сильно напившись поспорю что переплыву озеро, но примерно на середине мои силы иссякнут и я утону.',
+			' от сосулечно-парапседальной детерменизационной аклиматизации головного мозга.',
+			', утонув в бассейне. Подскользнувшись на мокрой после дождя плитке, ударюсь затылком и свалюсь в воду, потеряв сознание',
+			' во время пробежки. Не заметив ремонт впереди себя, я налечу глазом на торчащую арматуру. Проткнув глазное яблоко, я умру от кровоизлеяния в мозг.',
+			' от увечий, нанесённых мне лошадью. На конной прогулке я неаккуратно подойду к нервной лошади и она легнет меня задним ногами в шею. От удара произойдёт разрыв гортани и артерии.',
+			' от укуса Кенийской Лидрарии, на которую окажется у меня будет аллергия. Отёк гортани быстро лишит меня воздуха и я умру в страшных муках.',
+			' в результате вдоха химических паров неизвестного мне вещества. Химический ожог растворит лёгкие и я захлебнусь кровавой кашей из своих органов.',
+			' в результате обвала кровли кинотеатра. Тежелая аппаратура и некачественная работа строителей утянут металлические балки на людей в зале. Мне проломит череп, сломает шею и я умру мгновенно.',
+			', ожидая автобус на остановке. Заснувший водитель газели не справится с управлением и снесёт остановку вместе с ожидавшими транспорта людьми.',
+			' во время пожара на концерте. Огонь сделает толпу безумным стадом, я споткнусь и люди меня затопчут, переломая все кости.',
+			' во время подъёма на гору во время экскурсии. Зазевавшись, промохнусь ногой мимо уступа и сорвусь с высокого склона. Скорая не успеет приехать и я истеку кровью.',
+			' под колёсами погрузчика. Работник в продуктовом магазине будет ехать с ящиками овощей, не заметит меня и подомнет под колеса тяжёлой машины.'
 		];
-		if (!this.state.______reason2) {
+		if (!this.state._______reason2) {
 			let timeDate = await new Date(Date.now() + this.random(1 * 60 * 60 * 1000, 100 * 365 * 24 * 60 * 60 * 1000)).getTime();
 			let data = this.state.data;
-			if(this.state.sValues === undefined || data.______date2 == false) {
+			if(this.state.sValues === undefined || data._______date2 == false) {
 				let rId = this.random(0, reasons.length);
 				await this.setState({reason: reasons[rId]});
 				await this.setState({timeDate});
 				if(bridge.supports('VKWebAppStorageSet')) {
 					try{
-						await bridge.sendPromise('VKWebAppStorageSet', {key: '______date1', value: timeDate.toString()});
-						await bridge.sendPromise('VKWebAppStorageSet', {key: '______reason1', value: rId.toString()});
+						await bridge.sendPromise('VKWebAppStorageSet', {key: '_______date1', value: timeDate.toString()});
+						await bridge.sendPromise('VKWebAppStorageSet', {key: '_______reason1', value: rId.toString()});
 						console.log('data saved as standart');
 
 						timeDate = await new Date(Date.now() + this.random(1 * 60 * 60 * 1000, 100 * 365 * 24 * 60 * 60 * 1000)).getTime();
 						rId = this.random(0, reasons.length);
-						await bridge.sendPromise('VKWebAppStorageSet', {key: '______date2', value: timeDate.toString()});
-						await bridge.sendPromise('VKWebAppStorageSet', {key: '______reason2', value: rId.toString()});
+						await bridge.sendPromise('VKWebAppStorageSet', {key: '_______date2', value: timeDate.toString()});
+						await bridge.sendPromise('VKWebAppStorageSet', {key: '_______reason2', value: rId.toString()});
 						console.log('data saved as paralel');
 
-						let sValues = await bridge.sendPromise('VKWebAppStorageGet', {keys: ['______date1', '______date2', '______reason1', '______reason2']});
+						let sValues = await bridge.sendPromise('VKWebAppStorageGet', {keys: ['_______date1', '_______date2', '_______reason1', '_______reason2']});
 						sValues = sValues.keys;
 						let data = {};
 						try{
@@ -217,12 +241,12 @@ class App extends React.Component {
 				}
 			}else{
 				if (isParalel) {
-					await this.setState({______reason2: reasons[data.______reason2]});
-					await this.setState({timeDate2: data.______date2});
+					await this.setState({_______reason2: reasons[data._______reason2]});
+					await this.setState({timeDate2: data._______date2});
 					console.log('data loaded as paralel');
 				} else {
-					await this.setState({reason: reasons[data.______reason1]});
-					await this.setState({timeDate: data.______date1});
+					await this.setState({reason: reasons[data._______reason1]});
+					await this.setState({timeDate: data._______date1});
 					console.log('data loaded as standart');
 				}
 			}
@@ -297,7 +321,7 @@ class App extends React.Component {
 						<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80vw', textAlign: 'center', zIndex: 3 }}>
 							<Title level='1' weight='semibold'>Мне осталось <span style={{ backgroundImage: 'linear-gradient(to left, #fc6076 0%, #ff9a44 100%)', color: 'white', lineHeight: '18px', padding: '4px 4px 8px 4px', display: 'inline-block' }}>жить</span></Title>
 							{ this.state.time ? <Title level='2' weight='semibold' style={{ marginTop: '12px' }}>{this.state.time}</Title> : <span style={{ marginTop: '12px' }}>0 секунд</span> }
-							<Headline weight='semibold' style={{ marginTop: '12px', color: 'white', background: 'linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)', padding: '4px', display: 'inline-block' }}>{ 'Я умру' + ( this.state.paralel ? this.state.______reason2: this.state.reason ) }</Headline><br/>
+							<Headline weight='semibold' style={{ marginTop: '12px', color: 'white', background: 'linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)', padding: '4px', display: 'inline-block' }}>{ 'Я умру' + ( this.state.paralel ? this.state._______reason2: this.state.reason ) }</Headline><br/>
 							<Button before={<Icon24ImageFilterOutline width={20} height={20} style={{ paddingRight: '4px' }}/>} size='l' style={{ marginTop: '12px', display: this.state.screen && 'none' }} onClick={
 								async ()=>{
 									if(this.state.shared === true){
