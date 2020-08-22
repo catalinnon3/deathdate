@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/deathdate/static/css/main.84bec8af.chunk.css",
-    "main.js": "/deathdate/static/js/main.56f4bbc1.chunk.js",
+    "main.js": "/deathdate/static/js/main.f50b3b57.chunk.js",
     "runtime-main.js": "/deathdate/static/js/runtime-main.67627fc5.js",
     "static/css/2.19481ff5.chunk.css": "/deathdate/static/css/2.19481ff5.chunk.css",
-    "static/js/2.a45200fa.chunk.js": "/deathdate/static/js/2.a45200fa.chunk.js",
+    "static/js/2.4afba2d5.chunk.js": "/deathdate/static/js/2.4afba2d5.chunk.js",
     "index.html": "/deathdate/index.html",
-    "precache-manifest.d99f6ce4286ba541dd3a1257734095c0.js": "/deathdate/precache-manifest.d99f6ce4286ba541dd3a1257734095c0.js",
+    "precache-manifest.8cecda3ca9d613af8d2bd8756ceacda1.js": "/deathdate/precache-manifest.8cecda3ca9d613af8d2bd8756ceacda1.js",
     "service-worker.js": "/deathdate/service-worker.js",
     "static/media/skull1.svg": "/deathdate/static/media/skull1.4e9c5d1d.svg",
     "static/media/skull2.svg": "/deathdate/static/media/skull2.c943ccf9.svg",
